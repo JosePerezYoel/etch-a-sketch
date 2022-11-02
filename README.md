@@ -1,0 +1,1 @@
+In this project I will be using JavaScript and FlexBox to create a virtual version of etch-a-sketch. This is the second Javascript Project from TOP. This project has a core focus on DOM manipulation.
