@@ -1,16 +1,16 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
 }
-
 
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
     gap: 50px;
 
 }
@@ -24,7 +24,6 @@ body {
     justify-content: center;
     align-items: center;
     border: solid black 2px;
-
 }
 
 .get-user-input {
@@ -38,11 +37,7 @@ input {
     font-size: 30px;
 }
 
-
-
-
 .grid .cell {
     border: solid black 1px;
 
-    
 }

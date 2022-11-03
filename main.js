@@ -1,8 +1,8 @@
 function main() {
     const input = document.querySelector('input');
     const button = document.querySelector('button');
-    
-    button.addEventListener('click', function() {
+
+    button.addEventListener('click', function () {
         resetGrid();
         createGrid(parseInt(input.value));
         draw();
@@ -11,13 +11,13 @@ function main() {
 
 function createGrid(numCells) {
     const grid = document.querySelector('.grid');
-    const sizeOfCells = grid.offsetWidth/numCells;
+    const sizeOfCells = grid.offsetWidth / numCells;
     for (let i = 0; i < numCells; i++) {
         const row = document.createElement('div');
         row.classList.add('row');
         row.style.width = `${sizeOfCells}px`;
         grid.appendChild(row);
-        for (let j = 0; j <numCells; j++) {
+        for (let j = 0; j < numCells; j++) {
             const cell = document.createElement('div');
             cell.classList.add('cell');
             cell.style.width = `${sizeOfCells}px`;
@@ -35,11 +35,11 @@ function resetGrid() {
 
 function draw() {
     const cells = document.querySelectorAll('.cell');
-    cells.forEach(cell => cell.addEventListener('mouseover', function() {
+    cells.forEach(cell => cell.addEventListener('mouseover', function () {
         cell.style.backgroundColor = 'black';
     }));
-    
-    
+
+
 }
 
 main();
