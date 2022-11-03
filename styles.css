@@ -5,19 +5,30 @@
     padding: 0px;
     margin: 0px;
 }
-
 body {
+    background-color: rgba(0, 0, 255, 0.329);
+}
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 50px;
-
+    background-color: rgb(206, 11, 11);
+    margin: 10px 500px;
+}
+h1 {
+    position: absolute;
+    top: 0px;
+    padding: 20px;
+    color: rgba(255, 255, 0, 0.842);
+    font-size: 50px;
+    font-style: italic;
 }
 
 .grid {
     margin-top: 100px;
-    background-color: red;
+    background-color: lightgray;
     display: flex;
     width: 700px;
     height: 700px;
@@ -33,11 +44,27 @@ body {
 
 input {
     height: 50px;
-    text-align: center;
-    font-size: 30px;
+    text-align: left;
+    font-size: 20px;
+    background-color: lightgray;
+    width: 500px;
+    color: gray;
+    padding-left: 10px;
 }
+
+
+
 
 .grid .cell {
     border: solid black 1px;
 
+}
+
+button {
+    padding: 10px;
+    background-color: lightgray;
+}
+
+button:hover {
+    scale: 110%;
 }

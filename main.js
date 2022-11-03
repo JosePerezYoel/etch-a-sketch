@@ -1,11 +1,18 @@
 function main() {
+    createGrid(16);
+    draw();
     const input = document.querySelector('input');
     const button = document.querySelector('button');
 
     button.addEventListener('click', function () {
-        resetGrid();
-        createGrid(parseInt(input.value));
-        draw();
+        if (input.value > 100) {
+            alert("Type in a number between 1 and 100");
+        }
+        else {
+            resetGrid();
+            createGrid(parseInt(input.value));
+            draw();
+        }
     });
 }
 
