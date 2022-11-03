@@ -1,4 +1,13 @@
-
+function main() {
+    const input = document.querySelector('input');
+    const button = document.querySelector('button');
+    
+    button.addEventListener('click', function() {
+        resetGrid();
+        createGrid(parseInt(input.value));
+        draw();
+    });
+}
 
 function createGrid(numCells) {
     const grid = document.querySelector('.grid');
@@ -16,18 +25,24 @@ function createGrid(numCells) {
             row.appendChild(cell);
         }
     }
-}
 
-const input = document.querySelector('input');
-const button = document.querySelector('button');
+}
 
 function resetGrid() {
     const rows = document.querySelectorAll('.row');
     rows.forEach(row => row.remove());
 }
-button.addEventListener('click', function() {
-    resetGrid();
-    createGrid(parseInt(input.value));
-});
+
+function draw() {
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => cell.addEventListener('mouseover', function() {
+        cell.style.backgroundColor = 'black';
+    }));
+    
+    
+}
+
+main();
+
 
 
