@@ -3,34 +3,60 @@ function main() {
     const blackButton = document.querySelector('.black')
     const rainbowButton = document.querySelector('.rainbow');
     const grayScaleButton = document.querySelector('.grayscale');
+    const clearButton = document.querySelector('.clear');
+    const coolButton = document.querySelector('.cool');
 
     let color;
+
     blackButton.onclick = (e) => {
- 
         draw('black');
         color = 'black';
+        blackButton.classList.add('pressed');
+        rainbowButton.classList.remove('pressed');
+        grayScaleButton.classList.remove('pressed');
+
+
     };
     rainbowButton.onclick = () => {
         draw('rainbow');
         color = 'rainbow';
+        rainbowButton.classList.add('pressed');
+        grayScaleButton.classList.remove('pressed');
+        blackButton.classList.remove('pressed');
+
     }
 
     grayScaleButton.onclick = () => {
         draw('grayscale');
         color = 'grayscale';
+        grayScaleButton.classList.add('pressed');
+        rainbowButton.classList.remove('pressed');
+        blackButton.classList.remove('pressed');
     }
-    
+
+    blackButton.click();
+
+
     slider.value = 16;
     createGrid(slider.value);
     draw('black');
+
+    clearButton.onclick = () => {
+        resetGrid();
+        createGrid(slider.value);
+        draw(color);
+    }
+
     slider.onmousemove = (e) => changeSliderNumber(e.target.value);
-    slider.addEventListener('change', function(e) {
+    slider.addEventListener('change', function (e) {
         resetGrid();
         createGrid(slider.value);
         draw(color);
     });
 
 }
+
+
 
 function changeSliderNumber(value) {
     const sliderNumber = document.querySelector('.slider-number');

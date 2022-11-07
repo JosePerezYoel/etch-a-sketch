@@ -15,14 +15,14 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    gap: 200px;
+    gap: 100px;
 
 }
 
 h1 {
     font-size: 50px;
     text-align: center;
-    padding: 50px;
+    margin: 50px 0px 50px 0px;
 }
 .grid {
     background-color: white;
@@ -61,12 +61,21 @@ h1 {
 
 
 button {
-    padding: 10px;
+    padding: 20px;
     background-color: white;
-    max-width: 100px;
-    min-width: 100px;
+    max-width: 300px;
+    min-width: 300px;
+    background-color: inherit;
+    font-size: 14px;
+    border-radius: 5px;
+    border: solid black 2px;
+}
+
+.pressed {
+    background-color: black;
+    color: white;
 }
 
 button:hover {
-    scale: 110%;
+    scale: 102%;
 }
