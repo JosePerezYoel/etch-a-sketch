@@ -1,22 +1,46 @@
 function main() {
-    createGrid(16);
-    draw();
-    const input = document.querySelector('input');
-    const button = document.querySelector('button');
+    const slider = document.querySelector('.slider');
+    const blackButton = document.querySelector('.black')
+    const rainbowButton = document.querySelector('.rainbow');
+    const grayScaleButton = document.querySelector('.grayscale');
 
-    button.addEventListener('click', function () {
-        if (input.value > 100) {
-            alert("Type in a number between 1 and 100");
-        }
-        else {
-            resetGrid();
-            createGrid(parseInt(input.value));
-            draw();
-        }
+    let color;
+    blackButton.onclick = (e) => {
+ 
+        draw('black');
+        color = 'black';
+    };
+    rainbowButton.onclick = () => {
+        draw('rainbow');
+        color = 'rainbow';
+    }
+
+    grayScaleButton.onclick = () => {
+        draw('grayscale');
+        color = 'grayscale';
+    }
+    
+    slider.value = 16;
+    createGrid(slider.value);
+    draw('black');
+    slider.onmousemove = (e) => changeSliderNumber(e.target.value);
+    slider.addEventListener('change', function(e) {
+        resetGrid();
+        createGrid(slider.value);
+        draw(color);
     });
+
+}
+
+function changeSliderNumber(value) {
+    const sliderNumber = document.querySelector('.slider-number');
+    sliderNumber.textContent = `${value} x ${value}`;
 }
 
 function createGrid(numCells) {
+
+
+
     const grid = document.querySelector('.grid');
     const sizeOfCells = grid.offsetWidth / numCells;
     for (let i = 0; i < numCells; i++) {
@@ -40,14 +64,39 @@ function resetGrid() {
     rows.forEach(row => row.remove());
 }
 
-function draw() {
+function draw(option) {
     const cells = document.querySelectorAll('.cell');
-    cells.forEach(cell => cell.addEventListener('mouseover', function () {
-        cell.style.backgroundColor = 'black';
-    }));
 
+    if (option === 'rainbow') {
+        cells.forEach(cell => cell.addEventListener('mouseover', function () {
+            cell.style.backgroundColor = `rgb(${Math.random() * (255 - 0) + 0},${Math.random() * (255 - 0) + 0},${Math.random() * (255 - 0) + 0})`;
+        }));
+    }
+
+    else if (option === 'black') {
+        cells.forEach(cell => cell.addEventListener('mouseover', function () {
+            cell.style.backgroundColor = `rgb(20,20,20)`;
+        }));
+    }
+
+    else if (option === 'grayscale') {
+        let value = 90;
+        cells.forEach(cell => cell.addEventListener('mouseover', function () {
+            if (value > 0) {
+                value = value - 5;
+            }
+            else {
+                value = 90;
+            }
+            cell.style.backgroundColor = `rgb(${value}%,${value}%,${value}%)`;
+        }));
+    }
 
 }
+
+
+
+
 
 main();
 
